@@ -1,13 +1,12 @@
 #!/usr/bin/env python2
 #-*- coding: utf-8 -*-
 
-def genList(listArgs):
+def gen_list(list_args):
     """
     Возвращает квадраты четных элементов на нечетных позициях.
     """
-    res = [listArgs[indx] ** 2 for indx in range(1, len(listArgs), 2) if listArgs[indx] % 2 == 0]
-    return res
+    return [el ** 2 for i, el in enumerate(list_args) if i % 2 != 0]
 
 if __name__ == '__main__':
     L = [1, 2, 2, 4, 10, 9]
-    print genList(L)
+    print gen_list(L)

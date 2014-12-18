@@ -4,7 +4,8 @@ import sys
 
 if __name__ == '__main__':
     files = sys.argv[1:]		# первый элемент списка argv - имя модуля программы
-    for fileName in files:
+    for file_name in files:
         # чтение строк файла при помощи итератора
-        for line in open(fileName, 'r'):
-            print line,			# подавить перевод на следующую строку
+        with open(file_name) as f:
+            for line in f:
+                print line,		# подавить перевод на следующую строку

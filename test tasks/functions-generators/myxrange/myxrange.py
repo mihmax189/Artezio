@@ -13,6 +13,8 @@ def myxrange(*args):
         # последовательности: в данном случае параметры start и step получают
         # значения по умолчанию
         start, stop, step = 0, args[0], 1
+        if stop < 0:
+            return
     elif len(args) == 2:
         # если передано два аргумента, то они задают нижний и верхний пределы
         # генерируемой последовательности: в данном случае параметр step получает
@@ -36,11 +38,11 @@ def myxrange(*args):
 
     else:
         print 'TypeError: myxrange() requires 1-3 int arguments'
-        exit(1)
+        return
 
     while (start < stop if start < stop else stop < start):
         yield start
         start += step
 
 if __name__ == '__main__':
-    print list(myxrange(10, 100))
+    print list(myxrange(-3))
