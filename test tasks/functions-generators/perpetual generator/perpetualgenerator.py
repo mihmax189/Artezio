@@ -5,11 +5,10 @@ def perpetual_generator(value):
     """
     Функция-генератор: все время возвращает одно и тоже значение
     """
-    yield value
+    while True:
+        yield value
 
 if __name__ == '__main__':
-    try:
-        while True:
-            print next(perpetual_generator(10))
-    except KeyboardInterrupt:
-        pass
+    G = perpetual_generator(10)
+    for i in range(10):
+        print next(G)
